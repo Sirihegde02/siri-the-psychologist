@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guided Meditation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/meditation.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Let's practice Box Breathing! Follow my lead...</h1>
+    <div id="bubble">
+      <span id="bubble-text">Start</span>
+    </div>
+    <button id="toggleBtn">Start Meditation</button>
+    <audio id="bgMusic" src="{{ url_for('static', filename='audio/relaxing-music-vol1-124477.mp3') }}" loop></audio>
+  </div>
+  <script src="{{ url_for('static', filename='js/meditation.js') }}"></script>
+</body>
+</html>

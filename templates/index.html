@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Psychologist Bot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/mhcicon.png') }}" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body class="calm-bg">
+  <h1 class="bot-title">Siri the Psychologist</h1>
+
+  <div class="chat-container">
+    <main class="msger-chat" id="chat">
+      <div class="msg left-msg">
+        <div class="msg-img" style="background-image: url('{{ url_for('static', filename='img/mhcicon.png') }}')"></div>
+        <div class="msg-bubble">
+          <div class="msg-info">
+            <div class="msg-info-name">Siri Bot</div>
+            <div class="msg-info-time"><time id="clock"></time></div>
+          </div>
+          <div class="msg-text">
+            Welcome to Siri The Psychologist, a safe and supportive space where you can share your thoughts and feelings without fear of judgement.
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <form class="msger-inputarea">
+      <input type="text" class="msger-input" id="textInput" placeholder="Enter your message..." />
+      <button type="submit" class="msger-send-btn">Send</button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/bot.js') }}"></script>
+</body>
+</html>

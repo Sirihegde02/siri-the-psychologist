@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guided Journaling</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/journaling.css') }}">
+  <script>
+    function newPrompt() {
+      fetch("/journal_prompt")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("journalText").value = data + "\n\n";
+        });
+    }
+
+    function emailEntry() {
+      const journalContent = document.getElementById("journalText").value.trim();
+      if (!journalContent) {
+        alert("Please write something first.");
+        return;
+      }
+
+      const email = prompt("Enter your email address:");
+      if (!email || !email.includes("@")) {
+        alert("Please enter a valid email.");
+        return;
+      }
+
+      fetch("/send_journal_email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ entry: journalContent, email: email }),
+      })
+        .then((res) => res.text())
+        .then((msg) => alert(msg));
+    }
+
+    window.onload = newPrompt;
+  </script>
+</head>
+<body class="journaling-bg">
+  <div class="journaling-card">
+    <h2 class="title">Guided Journaling</h2>
+    <div class="ai-prompt-box">
+        <p class="ai-prompt-label">AI Reflection Prompt:</p>
+        <p class="ai-prompt-content">{{ prompt }}</p>
+    </div>
+    <textarea id="journalBox" placeholder="Start writing your thoughts here..."></textarea>
+    <div class="button-group">
+        <button onclick="getNewPrompt()" class="new-prompt">New Prompt</button>
+        <button onclick="emailEntry()" class="email-entry">Email Entry</button>
+    </div>
+    <audio src="{{ url_for('static', filename='audio/relaxing-music-vol1-124477.mp3') }}" autoplay loop></audio>
+  </div>
+<script src="{{ url_for('static', filename='js/journal.js') }}"></script>
+</body>
+</html>
