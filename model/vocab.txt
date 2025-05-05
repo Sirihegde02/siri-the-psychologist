@@ -18144,7 +18144,7 @@ correction
 ##ryn
 countdown
 detectives
-Siri
+psychiatrist
 psychedelic
 dinosaurs
 blouse
@@ -19064,7 +19064,7 @@ neolithic
 artemis
 coefficient
 lenny
-Siri
+pandora
 tx
 ##xed
 ecstasy

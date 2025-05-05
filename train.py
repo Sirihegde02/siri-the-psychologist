@@ -57,7 +57,9 @@ training_args = TrainingArguments(
     num_train_epochs=4,
     per_device_train_batch_size=16,
     logging_steps=10,
-    save_total_limit=1
+    save_total_limit=1,
+    save_strategy="epoch",            # <-- important!
+    logging_dir="./results/logs",     # for TensorBoard
 )
 
 

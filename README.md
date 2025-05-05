@@ -33,7 +33,7 @@ This project includes:
 ## 🚀 Run It Locally
 
 ```bash
-git clone https://github.com/Sirihegde02/Mental-health-Chatbot-1.git
+git clone https://github.com/Sirihegde02/siri-the-psychologist.git
 cd Mental-health-Chatbot-1
 
 # Install dependencies
